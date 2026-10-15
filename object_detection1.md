@@ -115,9 +115,9 @@
 - We will also perform regression with the predicted bbox on the ground truth bbox to teach the CNN to learn how to form the box around the object
 - The factors of the bbox that it needs to learn are the transformed image's centre $x,y$ coordinates, as well as the box's height and width
 
-![[region-based-cnn-3.png]]
+![Region based CNN](Images/region-based-cnn-3.png)
 
-![[cnn-region-based-cnn.png]]
+![CNN region based CNN ](Images/cnn-region-based-cnn.png)
 
 ## Bounding Box Computation
 - Original region proposal = ($p_x, p_y, p_h, p_w$)
@@ -156,13 +156,13 @@ $$
 	- These are design choices that we can make
 		- Often we just use threshold
 
-![[r-cnn-testing.png]]
+![RCNN testing](Images/r-cnn-testing.png)
 
 ## R-CNN Results (Random Sample)
 
-![[r-cnn-results.png]]
+![RCNN results](Images/r-cnn-results.png)
 
-![[rcnn-results-authors-pick.png]]
+![RCNN result author pick](Images/rcnn-results-authors-pick.png)
 
 ## R-CNN Summary
 - R-CNN (Region-based convolutional neural network) does classification in parallel over a set of region proposals
@@ -181,56 +181,56 @@ $$
 - What this means is that rather than taking samples from the image like we did for R-CNN, we are instead going to take samples from the feature map output of the CNN
 - This saves us on computations, as there are many, many overlapping proposals and therefore redundant calculations
 
-![[Computer Vision/Images/fast-rcnn.png]]
+![Fast RCNN](Computer Vision/Images/fast-rcnn.png)
 
 ## Fast R-CNN
 - As explained, we first take our imge
 
-![[fast-rcnn 1.png]]
+![Fast RCNN1](Images/fast-rcnn 1.png)
 
 - We feed the image through our convolutional neural net and then take the feature map output of the last layer.
 
-![[fast-rcnn2.png]]
+![Fast RCNN2](Images/fast-rcnn2.png)
 
 - With these feature map, we will take our regions of interest.
 - This will look at a _representation_ of the image rather than the pixel values of the image
 
-![[Computer Vision/Images/fast-rcnn3.png]]
+![Fast RCNN](Computer Vision/Images/fast-rcnn3.png)
 
 - Like in R-CNN, we crop and resize these regions of interest into squares
 
-![[Computer Vision/Images/fast-rcnn4.png]]
+![Fast RCNN4](Computer Vision/Images/fast-rcnn4.png)
 
 ## How to Crop/Resize Features
 - So we map the bounding box to the last layer feature map columns (since the feature map is downsized)
 
-![[how-to-crop-resize-features.png]]
+![How to crop resize feature](Images/how-to-crop-resize-features.png)
 
 - We then "snap" the bounding box to the closest columns on the feature map, i.e. making sure that the coordinates of the box are in line with the dimensions of the downsized feature map
 - We then downsize our feature map into a 2x2x$n_{channels}$ representation with max pool within each grid cell and use this output for classification and bounding box predictions
 
-![[how-to-crop-resize-features2.png]]
+![How to crop resize feature](Images/how-to-crop-resize-features2.png)
 
 ## Fast R-CNN
 - We then feed these resized regions of interest into a CNN, which is much smaller and faster
 
-![[fast-rcnn5.png]]
+![Fast RCNN](Images/fast-rcnn5.png)
 
 - We then receive our bbox and class outputs from the model
 
-![[Computer Vision/Images/fast-rcnn7.png]]
+![Fast RCNN](Images/Computer Vision/Images/fast-rcnn7.png)
 
 - Backbone will be used to extract features from the image, i.e. AlexNet or ResNet
 - The per-region network doesn't need to be complex since the output is so downsized and processed
 
-![[fast-rcnn6.png]]
+![Fast RCNN](Images/fast-rcnn6.png)
 
 - What architecture to use for the "backbone" FCN and per-region networks?
 	- AlexNet, ResNet, etc.
 
-![[fast-rcnn7 1.png]]
+![Fast RCNN](Images/fast-rcnn7 1.png)
 
-![[fast-rcnn8.png]]
+![Fast RCNN](Images/fast-rcnn8.png)
 
 ## Fast R-CNN Training
 - Train on $R$ regions sampled from $N$ images
@@ -242,7 +242,7 @@ $$
 		 - This is so we have an acceptable first derivative of the L1 loss, as there will be discontinuities when L1 = 0
  - $L_{loc}$ computed for object classes only
 	- i.e. if it is background, then we won't compute the loss, we will only compute the loss over the actual object classes
-![[fast-rcnn-training.png]]
+![Fast RCNN Training](Images/fast-rcnn-training.png)
 
 ## Fast R-CNN Summary
 - End-to-end region-based convolutional neural network
@@ -258,14 +258,14 @@ $$
 - Major change: network learns region proposals, instead of Selective Search 
 - The left-hand side are the new parts for faster R-CNN - a region proposal network
 
-![[faster-rcnn.png]]
+![Faster RCNN](Images/faster-rcnn.png)
 
 ## Region Proposal Network (RPN)
 - Each pixel in our downsampled representation of the image gets the chance to propose regions of interest, i.e. anchor points.
 - We let the anchor point make $k$ proposals of what region that it belongs to, as well as a fixed size and aspect ratio for the region
 - In each region, predict object class and bounding box transform
 
-![[region-proposal-network.png]]
+![Region proposal network](Images/region-proposal-network.png)
 
 ## Faster R-CNN
 - For each region:
@@ -275,7 +275,7 @@ $$
 	- Run backbone CNN to get feature map
 	- Compute region proposals from RPN
 
-![[faster-rcnn.png]]
+![Faster RCNN](Images/faster-rcnn.png)
 
 ## Faster R-CNN Training
 - RPN loss is weighted sum of:
