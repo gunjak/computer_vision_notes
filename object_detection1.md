@@ -12,7 +12,7 @@
 
 ## Classification vs. Detection
 
-![[classification-v-detection.png]]
+![classification vs detection](Images/classification-v-detection.png)
 
 - Object detection = locate objects in an image
 	- Classification: "Is this a $<\text{class label}>$?"
@@ -28,11 +28,11 @@
 	- Our target could be anywhere in the image, so we would need to continually shift it across the image to search for it
 	- These two combinations creates waaay too many combinations for our sliding window approach to be even slightly efficient
 
-![[sliding-window-approach.png]]
+![sliding window approach](Images/sliding-window-approach.png)
 
-![[sliding-window-approach2.png]]
+![sliding window approach](sliding-window-approach2.png)
 
-![[sliding-window-approach3.png]]
+![sliding window approach](sliding-window-approach3.png)
 
 - Free parameters:
 	- Stride
@@ -47,12 +47,12 @@
 	- Is the below image a good result?
 		 - We can consider each of these not exactly capturing the essence of our lamp. So we will need a definitive metric to define this
 
-![[sliding-window-evaluation.png]]
+![sliding window evaluation](Images/sliding-window-evaluation.png)
 
 ## Window Evaluation: IoU
 - Common method to evaluate a window result is Intersection over Union (IoU) between true bounding box and detection window
 
-![[iou-formula.png]]
+![IOU](Images/iou-formula.png)
 
 ## Example: IoU
 - Our predicted box is $3 \times 7= 21$
@@ -60,7 +60,7 @@
 - The total area of union is the area of total area of the box, $6 \times 8 + 3 = 51$
 - $IoU = 18/51 = 0.35$
 
-![[example-iou.png]]
+![Example IOU](Images/example-iou.png)
 
 ## Summary
 - Object detection is generally modelled as image classification within small regions of an image
@@ -74,13 +74,13 @@
 - Very large number of windows per image (C scales x S shapes x N locations)
 - How to classify efficiently in parallel?
 
-![[r-cnn-sliding-window.png]]
+![RCNN sliding window](Images/r-cnn-sliding-window.png)
 
 ## Sliding Window Classification
 - Even in a neural network, classifying all possible boxes may be slow (may also increase false alarms)
 - Solution? Focus on boxes most likely to be objects
 
-![[sliding-window-classification0.png]]
+![sliding window classification](Images/sliding-window-classification0.png)
 
 ## R-CNN
 - R-CNN = Region-based convolutional neural network
@@ -92,24 +92,24 @@
 	- Oversegment image into superpixels
 	- Iteratively combine adjacent superpixels based on similarity in colour + texture, size, and compactness
 
-![[generating_region_proposals.png]]
+![Generating Region Proposal](Images/generating_region_proposals.png)
 
 ## R-CNN: Region-Based CNN
 - We first take an image
 
-![[rcnn-region-based-cnn.png]]
+![RCNN Region Based](Images/rcnn-region-based-cnn.png)
 
 - We take a bunch of regions of interest that or selective search selected (approximately 2000 in total)
 
-![[region-based-cnn.png]]
+![Region based CNN](region-based-cnn.png)
 
 - Since our regions of interest may not necessarily be square but various dimensions, we will then warp these patches to become square
 
-![[r-cnn-region-based-cnn.png]]
+![RCNN region based CNN](Images/r-cnn-region-based-cnn.png)
 
 - We then run each of these patches through a **single** CNN
 
-![[region-based-cnn-2.png]]
+![Region Based CNN](Images/region-based-cnn-2.png)
 
 - The CNN then predicts both the class of the patch AND the bbox of that class
 - We will also perform regression with the predicted bbox on the ground truth bbox to teach the CNN to learn how to form the box around the object
