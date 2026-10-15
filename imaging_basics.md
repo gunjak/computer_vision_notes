@@ -12,13 +12,13 @@
 - 2D projection of a 3D scene
 - Take a look at the below image. What is basically happening is we have an outside world being projected upside-down onto the wall of a dark room through a tiny hole. This is basically how a pinhole camera works.
 
-![[eye_and_nature_of_vision.png]]
+!(eye and nature of vision)[eye_and_nature_of_vision.png]
 
 ## Creating an Image
 - Simple imaging system: pinhole camera or "camera obscura"
 - Much like our example in the above image, here is an example of a tree being projected in a pinhole camera.
 
-![[upside_down_photo.png]]
+![upside down photo](upside_down_photo.png)
 
 - Every point in the image corresponds to a point in the world
 - Take note of how the coordinate system works for a pinhole camera:
@@ -40,7 +40,7 @@
 	- Why not?
 		- Because these types of cameras require a very sensitive film, and we can have clearer images using other techniques
   
-![[pinhole.png]]
+![pinhole](pinhole.png)
 
 - Instead of a pinhole, most cameras use lenses
 	- Why?
