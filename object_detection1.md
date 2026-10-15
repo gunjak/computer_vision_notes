@@ -30,9 +30,9 @@
 
 ![sliding window approach](Images/sliding-window-approach.png)
 
-![sliding window approach](sliding-window-approach2.png)
+![sliding window approach](Images/sliding-window-approach2.png)
 
-![sliding window approach](sliding-window-approach3.png)
+![sliding window approach](Images/sliding-window-approach3.png)
 
 - Free parameters:
 	- Stride
