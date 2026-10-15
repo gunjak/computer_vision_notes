@@ -18,7 +18,7 @@
 - Simple imaging system: pinhole camera or "camera obscura"
 - Much like our example in the above image, here is an example of a tree being projected in a pinhole camera.
 
-![upside down photo](upside_down_photo.png)
+![upside down photo](Images/upside_down_photo.png)
 
 - Every point in the image corresponds to a point in the world
 - Take note of how the coordinate system works for a pinhole camera:
@@ -34,19 +34,19 @@
 	- As $f$ grows, so does the size of the object in the pinhole camera
 	- As $z$ grows, the object shrinks in the pinhole camera
  
-![[distance_diagram.png]]
+![distance diagram](Images/distance_diagram.png)
 
 - Pinhole camera: simple design, not common in practice
 	- Why not?
 		- Because these types of cameras require a very sensitive film, and we can have clearer images using other techniques
   
-![pinhole](pinhole.png)
+![pinhole](Images/pinhole.png)
 
 - Instead of a pinhole, most cameras use lenses
 	- Why?
 		- Because as shown below, as we let in more light, one point on a surface now illuminates a lot of the imaging surface, and multiple points will now overlap, causing a blur. Therefore we require lenses to bend the light.
   
-![[opened_pinhole.png]]
+![opened_pinhole](Images/opened_pinhole.png)
 
 ## Lenses
 - Lenses focus light rays onto a single point ($F$) at a distance ($f$) beyond the lens
@@ -57,20 +57,20 @@
 		- The **larger** the focal length $f$, the the narrower angle of view. This means narrower view of the world and more focus on further objects. 
 		- The **smaller** the focal length $f$, the wider the angle of view. This means they capture a wider view of the world.
 
-![[lense.png]]
+![lense](Images/lense.png)
 
 - Another example is shown below. Take the example below, what we have is an image plane line in the pinhole example, and an object that is in focus on the right hand side. As can be seen from the angles of the light from the lens. We will get a very clear image of this particular object.
 
-![[depth_of_field1.png]]
+![depth of field](Images/depth_of_field1.png)
 
 - Now let's look at a point that's closer than the point of focus. As can be seen by the fact that it has a spread over the image plane, this object will be blurred in the actual image.
 
-![[depth_of_field2.png]]
+![depth of field](Images/depth_of_field2.png)
 
 - The same for an object that is further away, it will also cause a spread on the image plane.
 - The **depth of field** in this case, we say is the distance of these two out-of-focus points, the two objects closest and furthest that can be in focus with the given focal length
 
-![[depth_of_field3.png]]
+![depth of field](Images/depth_of_field3.png)
 
 ## Focal Length / Angle of View
 - Focal length is the basic description of a photographic lens, specifically a calculation of an optical distance from the point where light rays converge to form a sharp image of an object to the digital sensor at the focal plane in the image. 
@@ -81,7 +81,7 @@
 	- The first image captures more of the wall, but the distant bottle looks very small
 	- The third image captures less of the wall, but the distant bottle looks larger
 
-![[focal_length.png]]
+![focal length](Images/focal_length.png)
 
 Answers:
 - 1 is C
@@ -91,28 +91,28 @@ Answers:
 ## Focal Length / Angle of View
 - Again, we can see that the larger the focal length of the lens, the narrower the field of view but the more magnification we get
 
-![[focal_lengths.png]]
+![focal length](Images/focal_lengths.png)
 
 ## Depth of Field
 - In cameras, aperture size controls depth of field (smaller aperture = greater range of depth in focus)
 - Wider aperture focuses on closer objects, narrower aperture also gives more focus to distant objects
 
-![[Computer Vision/Images/depth_of_field.png]]
+![depth of field](Computer Vision/Images/depth_of_field.png)
 
 - However, one drawback is that we are letting in less light, and consequently making the image darker
 - One example is shown below, when our aperture is larger, the closer painting is more in focus and the image is much brighter
 
-![[depth-of-field4.png]]
+![depth of filed](Imagesdepth-of-field4.png)
 
 - Smaller aperture is clearer for each painting now, but it is now much darker
 
-![[depth-of-field6.png]]
+![depth of field](Images/depth-of-field6.png)
 ## Distortion
 - Distortion is when straight lines in the real world look curved in an image. 
 - This is when the focal length of a lens is so small that it bends the light outwards so much that it makes the world look like it's bending inwards
 - This is known as barrel distortion
 
-![[las_vegas.png]]
+![las vegas](Images/las_vegas.png)
 
 ## Image Formation Model
 - The figure below gives a simple explanation of image formation.
@@ -120,7 +120,7 @@ Answers:
 - A part of that reflected light goes through an image plan that reaches a sensor plane via optics
 - Given that the image on the sensor plane will be upside down, we can extrapolate the image for calculations by having the image plane at the same distance from the optics as the sensor plane, and scaled accordingly.
 
-![[image_formation.png]]
+![image formation](Images/image_formation.png)
 
 ## Image Formation
 - World parameters
@@ -142,18 +142,18 @@ Answers:
 	 - $Height \times width \times channel$
 	 - $BRG = blue, red, green$ 
   
-![[3D_tensor.png]]
+![3D tensor](Images/3D_tensor.png)
 
 ### Colour channels
 - Below shows what the colours look individually in the 3 colour channels, the redness, greenness and blueness of the channel corresponds to the brightness of the image.
 
-![[colours.png]]
+![colours](Images/colours.png)
 
 - Pixel = smallest unit of an image
 	- Grayscale: pixel is a grayscale value
 	- Colour image: pixel is a 1x3 vector
  
-![[pixel.png]]
+![Pixel](Images/pixel.png)
 
 - Most common data type is unit8 (unsigned 8-bit integers)
 	- Range = 0 - 255
@@ -169,11 +169,11 @@ Answers:
 - Lossless compression:
 	- PNG (.png), BMP (.bmp), GIF (.gif), TIF (.tif, .tiff)
  
-![[melb_144kb_compressed.png]]
+![compressed](Images/melb_144kb_compressed.png)
 
 ## JPEG Compression
 
-![[Computer Vision/Images/jpeg_compression.png]]
+![compression](Computer Vision/Images/jpeg_compression.png)
 
 ## Digital Images
 - Stored as a tensor (3D array) of values
@@ -189,19 +189,19 @@ Answers:
 - Another is resizing, which will remove a certain amount of pixels throughout the image, dependent on scale.
 	- As can be seen, the result can lead to images where the aspect ratio is or is not preserved
 
-![[image_scaling.png]]
+![image scaling](Images/image_scaling.png)
 
 - In the picture below, we can see an example of resampling, however this one is jagged and pushed into the upper left corner of the picture.
 
-![[image_scaling2.png]]
+![image scaling](Images/image_scaling2.png)
 
-![[bad_resampling.png]]
+![bad resampling](Images/bad_resampling.png)
 
 - This picture below, however, has resampled the image by averaging over every 4 pixels. It's preserved the shape of the original image, but this operation is much more costly as it calculates for pixels for every pixel
 
-![[image_scaling3.png]]
+![image scaling](Images/image_scaling3.png)
 
-![[average_resampling.png]]
+![average resampling](Images/average_resampling.png)
 
 # Resampling Methods
 - Nearest-neighbour: closest value to sample point (as shown with the first example above)
@@ -212,15 +212,15 @@ Answers:
 	- Slower to compute
 - Other options: bicubic, Lanczos
 
-![[resampling.png]]
+![resampling](Images/resampling.png)
 
 ## Image Resampling
 - The results for these two resampling methods are shown below
 	- As can be seen, nearest neighbour looks much more blocky, while bilinear looks much smoother
 
-![[image_resampling.png]]
+![resampling](Images/image_resampling.png)
 
-![[resampling techniques.png]]
+![resampling techniques](Images/resampling techniques.png)
 
 ## Image Manipulations
 - Crop = extract a subset of the image array (doesn't require resampling)
