@@ -12,7 +12,7 @@
 - 2D projection of a 3D scene
 - Take a look at the below image. What is basically happening is we have an outside world being projected upside-down onto the wall of a dark room through a tiny hole. This is basically how a pinhole camera works.
 
-![eye and nature of vision](eye_and_nature_of_vision.png)
+![eye and nature of vision](images/eye_and_nature_of_vision.png)
 
 ## Creating an Image
 - Simple imaging system: pinhole camera or "camera obscura"
