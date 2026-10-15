@@ -220,7 +220,7 @@ Answers:
 
 ![resampling](Images/image_resampling.png)
 
-![resampling techniques](Images/resampling techniques.png)
+![resampling techniques](Images/resampling_techniques.png)
 
 ## Image Manipulations
 - Crop = extract a subset of the image array (doesn't require resampling)
